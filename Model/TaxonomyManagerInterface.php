@@ -8,7 +8,6 @@
 namespace Vespolina\TaxonomyBundle\Model;
 
 use Vespolina\TaxonomyBundle\Model\TaxonomyInterface;
-use Vespolina\TaxonomyBundle\Model\TaxonomyManagerInterface;
 /**
  * @author Richard Shank <develop@zestic.com>
  */
@@ -37,5 +36,13 @@ interface TaxonomyManagerInterface
      * @param Boolean $andFlush Whether to flush the changes (default true)
      */
     function updateTaxonomy(TaxonomyInterface $Taxonomy, $andFlush = true);
+
+    /**
+     * Remove and persist the Taxonomy
+     *
+     * @param Vespolina\TaxonomyBundle\Model\TaxonomyInterface $Taxonomy
+     * @param Boolean $andFlush Whether to flush the changes (default true)
+     */
+    function deleteTaxonomy(TaxonomyInterface $Taxonomy, $andFlush = true);
 
 }

@@ -33,8 +33,6 @@ class TaxonomyManager extends BaseTaxonomyManager
 
     }
 
-
-
     /**
      * @inheritdoc
      */
@@ -58,6 +56,17 @@ class TaxonomyManager extends BaseTaxonomyManager
     public function updateTaxonomy(TaxonomyInterface $Taxonomy, $andFlush = true)
     {
         $this->dm->persist($Taxonomy);
+        if ($andFlush) {
+            $this->dm->flush();
+        }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function deleteTaxonomy(TaxonomyInterface $taxonomy, $andFlush = true)
+    {
+        $this->dm->remove($taxonomy);
         if ($andFlush) {
             $this->dm->flush();
         }
